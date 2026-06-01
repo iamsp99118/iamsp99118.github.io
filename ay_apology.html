@@ -88,6 +88,27 @@
             display: none !important;
         }
 
+        /* Drive Link Button */
+        .drive-link-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.2);
+        }
+
+        .drive-link-btn:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(255, 77, 109, 0.3);
+        }
+
         .reel-container {
             margin-top: 30px;
             display: flex;
@@ -96,13 +117,15 @@
             align-items: center;
         }
 
-        .reel-frame {
+        .video-frame {
             border: none;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             max-width: 100%;
             width: 320px;
-            height: 560px; /* Standard vertical video aspect ratio */
+            height: 560px;
+            background-color: #000;
+            object-fit: cover;
         }
 
         .gif-container img {
@@ -117,14 +140,14 @@
     <div id="gameScreen" class="container">
         <div class="gif-container">
             <!-- Cute pleading cat/bear GIF -->
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW9wN3A3Z3g0M3gybnVwZ3g1b3M1cjE2NXFpY210Ym95bWh5d3ZwaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Please">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW9wN3A3Z3g0M3gybnVwZ3g1b3M1cjE2NXFpY210Ym95bWh5d3ZwaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Sorry">
         </div>
         <!-- CUSTOMIZE HERE: Change the name -->
         <h1>Sholly paari Ayeshu 🥺</h1>
         <p>Pichle dino ke liye, aur har uss cheez jo maine ki-ya jo nahi ki, un sbb ke liye...</p>
         <p>I'm so so so sooooo sorry mere ullya! Pakka wala!</p>
 	<p>Click 'Yes' agar tu maan gayi, or try with the 'No' he he he...</p>
-        
+         
         <div class="btn-container">
             <button id="yesBtn" class="btn" onclick="forgiven()">Yes</button>
             <button id="noBtn" class="btn">No</button>
@@ -135,22 +158,29 @@
     <div id="successScreen" class="container hidden">
         <div class="gif-container">
             <!-- Happy dancing/loving GIF -->
-            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExczZ3dGx6dWh5MWpoNHd4N3N3YWdza3BxNDdxbmU0eGN4MjBjNjQyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T70hpBP1L0N7U0jtkq/giphy.gif" alt="Yay">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExczZ3dGx6dWh5MWpoNHd4N3N3YWdza3BxNDdxbmU0eGN4MjBjNjQyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T70hpBP1L0N7U0jtkq/giphy.gif" alt="Happy">
         </div>
         <h1>Yayyyyyyyy!❤️</h1>
         <!-- CUSTOMIZE HERE: Your personal letter to her -->
         <p> Mujhe pta tha heheh... </p>
 	<p> Ye rahi aapki videos: </p>
+         
+        <!-- CUSTOMIZE HERE: Replace the Google Drive folder link below -->
+        <a href="https://drive.google.com/drive/folders/YOUR_DRIVE_FOLDER_ID" target="_blank" class="drive-link-btn">📁 View More on Google Drive</a>
         
         <div class="reel-container">
-            <!-- CUSTOMIZE HERE: REEL 1 
-                 Note: Replace the URL after 'src=' with your Instagram embed link.
-                 To get an embed link, click the three dots on the Reel on a desktop browser -> Embed -> copy the source URL.
-                 Alternatively, you can use regular YouTube Shorts or TikTok embed codes here. -->
-            <iframe class="reel-frame" src="https://www.instagram.com/reel/C40v_gSxgXk/embed" scrolling="no" allowtransparency="true"></iframe>
+            <!-- CUSTOMIZE HERE: VIDEO 1 
+                 Replace the URL with your own MP4 file URL (you can host on GitHub, Drive, or any cloud storage) -->
+            <video class="video-frame" controls>
+                <source src="https://your-domain.com/video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             
-            <!-- CUSTOMIZE HERE: REEL 2 -->
-            <iframe class="reel-frame" src="https://www.instagram.com/reel/C48v_gSxgXk/embed" scrolling="no" allowtransparency="true"></iframe>
+            <!-- CUSTOMIZE HERE: VIDEO 2 -->
+            <video class="video-frame" controls>
+                <source src="https://your-domain.com/video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
 
