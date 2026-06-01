@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry! 🥺</title>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff758f;
+            --bg-color: #fff0f3;
+            --text-color: #590d22;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
+            max-width: 600px;
+            width: 90%;
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Game Screen Buttons */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 60px;
+            position: relative;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            background-color: #ff3355;
+        }
+
+        #noBtn {
+            background-color: #83c5be;
+            color: white;
+            position: absolute;
+        }
+
+        /* Success Screen (Hidden initially) */
+        .hidden {
+            display: none !important;
+        }
+
+        .reel-container {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .reel-frame {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 100%;
+            width: 320px;
+            height: 560px; /* Standard vertical video aspect ratio */
+        }
+
+        .gif-container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SCREEN 1: THE GAME -->
+    <div id="gameScreen" class="container">
+        <div class="gif-container">
+            <!-- Cute pleading cat/bear GIF -->
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW9wN3A3Z3g0M3gybnVwZ3g1b3M1cjE2NXFpY210Ym95bWh5d3ZwaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Please">
+        </div>
+        <!-- CUSTOMIZE HERE: Change the name -->
+        <h1>Sholly paari Ayeshu 🥺</h1>
+        <p>Pichle dino ke liye, aur har uss cheez jo maine ki-ya jo nahi ki, un sbb ke liye...</p>
+        <p>I'm so so so sooooo sorry mere ullya! Pakka wala!</p>
+	<p>Click 'Yes' agar tu maan gayi, or try with the 'No' he he he...</p>
+        
+        <div class="btn-container">
+            <button id="yesBtn" class="btn" onclick="forgiven()">Yes</button>
+            <button id="noBtn" class="btn">No</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: THE REWARD / APOLOGY ACCEPTED -->
+    <div id="successScreen" class="container hidden">
+        <div class="gif-container">
+            <!-- Happy dancing/loving GIF -->
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExczZ3dGx6dWh5MWpoNHd4N3N3YWdza3BxNDdxbmU0eGN4MjBjNjQyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T70hpBP1L0N7U0jtkq/giphy.gif" alt="Yay">
+        </div>
+        <h1>Yayyyyyyyy!❤️</h1>
+        <!-- CUSTOMIZE HERE: Your personal letter to her -->
+        <p> Mujhe pta tha heheh... </p>
+	<p> Ye rahi aapki videos: </p>
+        
+        <div class="reel-container">
+            <!-- CUSTOMIZE HERE: REEL 1 
+                 Note: Replace the URL after 'src=' with your Instagram embed link.
+                 To get an embed link, click the three dots on the Reel on a desktop browser -> Embed -> copy the source URL.
+                 Alternatively, you can use regular YouTube Shorts or TikTok embed codes here. -->
+            <iframe class="reel-frame" src="https://www.instagram.com/reel/C40v_gSxgXk/embed" scrolling="no" allowtransparency="true"></iframe>
+            
+            <!-- CUSTOMIZE HERE: REEL 2 -->
+            <iframe class="reel-frame" src="https://www.instagram.com/reel/C48v_gSxgXk/embed" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const gameScreen = document.getElementById('gameScreen');
+        const successScreen = document.getElementById('successScreen');
+
+        // Setting default position for No button within container bounds
+        noBtn.style.left = '60%';
+
+        // Function that moves the "No" button when hovered or touched
+        function moveNoButton() {
+            // Get container dimensions to keep the button inside it
+            const container = document.querySelector('.btn-container');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            // Calculate random positions (keeping it safely inside the interactive area)
+            const maxX = containerRect.width - btnRect.width;
+            const maxY = 150; // allows it to jump up or down a bit
+
+            const randomX = Math.floor(Math.random() * maxX);
+            // Random Y can be positive or negative to make it chaotic
+            const randomY = Math.floor(Math.random() * maxY) - 75; 
+
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.transform = `translateY(${randomY}px)`;
+        }
+
+        // Event listeners for both Desktop (mouseover) and Mobile (touchstart)
+        noBtn.addEventListener('mouseover', moveNoButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevents accidental clicking on mobile
+            moveNoButton();
+        });
+
+        // Function when "Yes" is clicked
+        function forgiven() {
+            gameScreen.classList.add('hidden');
+            successScreen.classList.remove('hidden');
+            // Smoothly scroll to the top of the page when transition happens
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
